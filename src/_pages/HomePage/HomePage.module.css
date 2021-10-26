@@ -1,0 +1,13 @@
+.header {
+    background-color: rgba(0, 255, 255, 0.335);
+    padding: 35px 0;
+    box-shadow: 0 5px 0 #3c93d5;
+}
+
+.title {
+    font-size: 28px;
+    line-height: 1.21;
+    font-weight: 700;
+    margin-left: 35px;
+    margin-top: 25px;
+}

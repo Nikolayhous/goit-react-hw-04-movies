@@ -1,7 +1,19 @@
-import moviesApi from './services/fetchMoviesApi';
+import axiosMoviesApi from './services/axiosMoviesApi';
+import { Route } from 'react-router-dom';
+import Homepage from './_pages/HomePage';
+import MoviesPage from './_pages/MoviesPage';
 
 function App() {
-    return <div></div>;
+    return (
+        <>
+            <Route path="/" exact>
+                <Homepage />
+            </Route>
+            <Route path="/movies">
+                <MoviesPage />
+            </Route>
+        </>
+    );
 }
 
 export default App;

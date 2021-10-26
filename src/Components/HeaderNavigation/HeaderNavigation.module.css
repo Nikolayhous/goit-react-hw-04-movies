@@ -1,0 +1,19 @@
+.link {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-left: 35px;
+    color: rgb(3, 27, 31);
+}
+
+.link:hover {
+    color: tomato;
+}
+
+.activeLink {
+    color: tomato;
+    border-bottom: 2px solid tomato;
+}
