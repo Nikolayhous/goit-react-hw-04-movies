@@ -1,17 +1,32 @@
-import axiosMoviesApi from './services/axiosMoviesApi';
-import { Route } from 'react-router-dom';
-import Homepage from './_pages/HomePage';
-import MoviesPage from './_pages/MoviesPage';
+import { Switch, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import Loader from './Components/Loader/Loader';
+import HeaderNavigation from './Components/HeaderNavigation';
+import Container from './Components/Container';
+
+const HomePage = lazy(() => import('./_pages/HomePage'));
+const MoviesPage = lazy(() => import('./_pages/MoviesPage'));
+const NotFoundView = lazy(() => import('./_pages/NotFoundView'));
 
 function App() {
     return (
         <>
-            <Route path="/" exact>
-                <Homepage />
-            </Route>
-            <Route path="/movies">
-                <MoviesPage />
-            </Route>
+            <HeaderNavigation />
+            <Suspense fallback={<Loader />}>
+                <Container>
+                    <Switch>
+                        <Route path="/" exact>
+                            <HomePage />
+                        </Route>
+                        <Route path="/movies">
+                            <MoviesPage />
+                        </Route>
+                        <Route>
+                            <NotFoundView />
+                        </Route>
+                    </Switch>
+                </Container>
+            </Suspense>
         </>
     );
 }

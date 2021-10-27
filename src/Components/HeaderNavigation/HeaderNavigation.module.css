@@ -1,12 +1,23 @@
+.header {
+    background-color: rgba(29, 78, 78, 0.75);
+    padding: 35px 0;
+    box-shadow: 0 5px 0 #3c93d5;
+}
+
+.list {
+    display: inline-flex;
+    align-items: center;
+}
+
 .link {
-    font-size: 22px;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: 700;
     line-height: 1.2;
     padding: 10px;
     border: none;
     cursor: pointer;
     margin-left: 35px;
-    color: rgb(3, 27, 31);
+    color: rgb(231, 247, 250);
 }
 
 .link:hover {
@@ -16,4 +27,5 @@
 .activeLink {
     color: tomato;
     border-bottom: 2px solid tomato;
+    display: inline-block;
 }

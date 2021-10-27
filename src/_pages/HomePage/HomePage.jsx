@@ -1,21 +1,35 @@
 import s from './HomePage.module.css';
-import { useState } from 'react';
-import HeaderNavigation from '../../Components/HeaderNavigation';
-// import { trendingMoviesApi } from '../../services/axiosMoviesApi';
+import { useState, useEffect, lazy, Suspense } from 'react';
+import fetchApi from '../../services/axiosMoviesApi';
+import TrendingList from '../../Components/TrendingList';
+import Loader from '../../Components/Loader/Loader';
+import { Route, Switch } from 'react-router';
 
 const HomePage = () => {
-    // const [trendingMovies, setTrendingMovies] = useState([]);
+    const [trendingMovies, setTrendingMovies] = useState([]);
+    console.log(trendingMovies);
+    useEffect(() => {
+        fetchApi.trendingMoviesApi().then(trendingMovies => {
+            setTrendingMovies(trendingMovies);
+        });
+    }, []);
+
     return (
         <>
-            <header className={s.header}>
-                <HeaderNavigation />
-            </header>
-
-            <h1 className={s.title}>Trending Today</h1>
-
-            <ul className={s.list}>
-                <li></li>
-            </ul>
+            <Suspense fallback={<Loader />}>
+                <h1 className={s.title}>Trending Today</h1>
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        render={() => (
+                            <>
+                                <TrendingList trendingMovies={trendingMovies} />
+                            </>
+                        )}
+                    ></Route>
+                </Switch>
+            </Suspense>
         </>
     );
 };
