@@ -1,8 +1,8 @@
 import s from './TrendingList.module.css';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const TrendingList = ({ trendingMovies }) => {
-    const { url } = useRouteMatch();
+    const location = useLocation();
     const imgSrcBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
     return (
@@ -18,7 +18,14 @@ const TrendingList = ({ trendingMovies }) => {
                             popularity,
                         }) => (
                             <li key={id} className={s.item}>
-                                <Link to={`${url}/${id}`}>
+                                <Link
+                                    to={{
+                                        pathname: `movies/${id}`,
+                                        state: {
+                                            from: location,
+                                        },
+                                    }}
+                                >
                                     <h2 className={s.title}>
                                         {original_title || name}
                                     </h2>

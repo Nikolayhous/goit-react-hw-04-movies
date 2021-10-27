@@ -5,9 +5,10 @@ import TrendingList from '../../Components/TrendingList';
 import Loader from '../../Components/Loader/Loader';
 import { Route, Switch } from 'react-router';
 
+const MovieDetailsPage = lazy(() => import('../MovieDetailsPage'));
 const HomePage = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
-    console.log(trendingMovies);
+
     useEffect(() => {
         fetchApi.trendingMoviesApi().then(trendingMovies => {
             setTrendingMovies(trendingMovies);
@@ -19,15 +20,12 @@ const HomePage = () => {
             <Suspense fallback={<Loader />}>
                 <h1 className={s.title}>Trending Today</h1>
                 <Switch>
-                    <Route
-                        exact
-                        path="/"
-                        render={() => (
-                            <>
-                                <TrendingList trendingMovies={trendingMovies} />
-                            </>
-                        )}
-                    ></Route>
+                    <Route path="/movies/:moviesId">
+                        <MovieDetailsPage />
+                    </Route>
+                    <Route>
+                        <TrendingList trendingMovies={trendingMovies} exact />
+                    </Route>
                 </Switch>
             </Suspense>
         </>

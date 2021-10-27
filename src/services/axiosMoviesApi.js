@@ -3,21 +3,12 @@ import axios from 'axios';
 const KEY_API = '98a377205a96ff71da3bcf70b617967d';
 axios.defaults.baseURL = 'https://api.themoviedb.org/';
 
-const trendingMoviesApi = async () => {
+const trendingMoviesApi = async (page = 1) => {
     try {
-        const { data } = await axios.get(
-            `3/trending/all/day?api_key=${KEY_API}&page=40`,
-        );
-        return data.results;
-    } catch (error) {
-        console.log(error.message);
-    }
-};
-
-const searchMoviesApi = async (searchQuery, page = 1) => {
-    try {
-        const { data: results } = await axios.get(
-            `3/search/movie?api_key=${KEY_API}&language=en-US&query=${searchQuery}&page=${page}&include_adult=false`,
+        const {
+            data: { results },
+        } = await axios.get(
+            `3/trending/all/day?api_key=${KEY_API}&page=${page}`,
         );
         return results;
     } catch (error) {
@@ -25,7 +16,18 @@ const searchMoviesApi = async (searchQuery, page = 1) => {
     }
 };
 
-const moviesIdApi = async (movieId = 10) => {
+const searchMoviesApi = async searchQuery => {
+    try {
+        const { data: results } = await axios.get(
+            `3/search/movie?api_key=${KEY_API}&language=en-US&query=${searchQuery}&include_adult=false`,
+        );
+        return results;
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
+const moviesIdApi = async movieId => {
     try {
         const response = await axios.get(
             `3/movie/${movieId}?api_key=${KEY_API}&language=en-US`,
