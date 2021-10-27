@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/Components/SearchForm/SearchForm.module.css"],"names":[],"mappings":"AAAA,wBACI,YAAa,CACb,sBAAuB,CACvB,eACJ","file":"5.63009def.chunk.css","sourcesContent":[".form {\n    display: flex;\n    justify-content: center;\n    margin-top: 50px;\n}\n"]}
