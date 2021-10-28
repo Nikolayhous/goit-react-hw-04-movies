@@ -1,13 +1,15 @@
 import s from './HomePage.module.css';
 import { useState, useEffect, lazy, Suspense } from 'react';
+import { Route, Switch } from 'react-router';
 import fetchApi from '../../services/axiosMoviesApi';
 import TrendingList from '../../Components/TrendingList';
 import PageHeading from '../../Components/PageHeading';
 import LoaderSpinner from '../../Components/Loader/';
-import { Route, Switch } from 'react-router';
+import ScrollToButton from '../../Components/ButtonScrollTo';
 
 const HomePage = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
+    const [isActiveBtn, setIsActiveBtn] = useState(false);
 
     useEffect(() => {
         fetchApi.trendingMoviesApi().then(trendingMovies => {
@@ -17,8 +19,8 @@ const HomePage = () => {
 
     return (
         <>
+            <PageHeading title={'Trending Today'} />
             <Suspense fallback={<LoaderSpinner />}>
-                <PageHeading title={'Trending Today'} />
                 <Switch>
                     <Route>
                         {trendingMovies.length && (
@@ -30,6 +32,8 @@ const HomePage = () => {
                     </Route>
                 </Switch>
             </Suspense>
+            {isActiveBtn && <ScrollToButton />}
+            {trendingMovies.length > 0 && <ScrollToButton />}
         </>
     );
 };

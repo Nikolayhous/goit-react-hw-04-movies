@@ -1,0 +1,24 @@
+.btnToTop {
+    position: fixed;
+}
+
+.btnToTop img {
+    position: fixed;
+    padding: 5px;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    bottom: 100px;
+    right: 50px;
+    width: 60px;
+}
+
+.btnToTop img:hover {
+    background: rgba(169, 212, 218, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 1), 0 16px 20px rgba(29, 78, 78, 0.75);
+}
+
+.scroll__img:active {
+    color: brown;
+}
