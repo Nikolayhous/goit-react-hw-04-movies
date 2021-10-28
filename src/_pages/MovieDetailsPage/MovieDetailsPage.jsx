@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom';
 import PageHeading from '../../Components/PageHeading';
 import MoviesId from '../../Components/MoviesId';
-import Cast from '../../Components/Cast';
+// import Cast from '../../Components/Cast';
+import GoBack from '../../Components/ButtonGoBack';
 
 const cast = lazy(() => import('../../Components/Cast'));
 
@@ -31,8 +32,9 @@ const MovieDetailsPage = () => {
     return (
         <>
             <PageHeading title={'Information about the film.'} />
+            <GoBack />
             {movie && <MoviesId movie={movie} />}
-            <Cast />
+            {/* <Cast /> */}
         </>
     );
 };
