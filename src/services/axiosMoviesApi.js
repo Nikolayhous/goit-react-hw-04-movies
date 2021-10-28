@@ -8,7 +8,7 @@ const trendingMoviesApi = async (page = 1) => {
         const {
             data: { results },
         } = await axios.get(
-            `3/trending/all/day?api_key=${KEY_API}&page=${page}`,
+            `3/trending/all/day?api_key=${KEY_API}&page=${page}&per_page=40`,
         );
         return results;
     } catch (error) {

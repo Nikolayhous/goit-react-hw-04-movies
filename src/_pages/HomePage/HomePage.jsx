@@ -2,10 +2,10 @@ import s from './HomePage.module.css';
 import { useState, useEffect, lazy, Suspense } from 'react';
 import fetchApi from '../../services/axiosMoviesApi';
 import TrendingList from '../../Components/TrendingList';
-import Loader from '../../Components/Loader/Loader';
+import PageHeading from '../../Components/PageHeading';
+import LoaderSpinner from '../../Components/Loader/';
 import { Route, Switch } from 'react-router';
 
-const MovieDetailsPage = lazy(() => import('../MovieDetailsPage'));
 const HomePage = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
 
@@ -17,14 +17,16 @@ const HomePage = () => {
 
     return (
         <>
-            <Suspense fallback={<Loader />}>
-                <h1 className={s.title}>Trending Today</h1>
+            <Suspense fallback={<LoaderSpinner />}>
+                <PageHeading title={'Trending Today'} />
                 <Switch>
-                    <Route path="/movies/:moviesId">
-                        <MovieDetailsPage />
-                    </Route>
                     <Route>
-                        <TrendingList trendingMovies={trendingMovies} exact />
+                        {trendingMovies.length && (
+                            <TrendingList
+                                trendingMovies={trendingMovies}
+                                exact
+                            />
+                        )}
                     </Route>
                 </Switch>
             </Suspense>

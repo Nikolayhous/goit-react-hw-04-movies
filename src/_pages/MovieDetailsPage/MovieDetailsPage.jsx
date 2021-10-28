@@ -1,13 +1,23 @@
+import s from './MovieDetailsPage.module.css';
 import fetchApi from '../../services/axiosMoviesApi';
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { useParams } from 'react-router';
+import {
+    useParams,
+    NavLink,
+    useRouteMatch,
+    useLocation,
+} from 'react-router-dom';
+import PageHeading from '../../Components/PageHeading';
+import MoviesId from '../../Components/MoviesId';
+import Cast from '../../Components/Cast';
+
+const cast = lazy(() => import('../../Components/Cast'));
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
-
+    const { url, path } = useRouteMatch();
+    const location = useLocation();
     const [movie, setMovie] = useState(null);
-
-    const profileBaseUrl = 'http://image.tmdb.org/t/p/w185';
 
     useEffect(() => {
         fetchApi
@@ -17,19 +27,12 @@ const MovieDetailsPage = () => {
                 console.log(error.message);
             });
     }, [movieId]);
-    console.log(movieId);
 
     return (
         <>
-            {movie && (
-                <>
-                    <h2>{movie.original_title || movie.name}</h2>
-                    <img
-                        src={`${profileBaseUrl}${movie.poster_path}`}
-                        alt={movie.title}
-                    />
-                </>
-            )}
+            <PageHeading title={'Information about the film.'} />
+            {movie && <MoviesId movie={movie} />}
+            <Cast />
         </>
     );
 };

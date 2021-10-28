@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import Loader from './Components/Loader/Loader';
+import Loader from './Components/Loader';
 import HeaderNavigation from './Components/HeaderNavigation';
 import Container from './Components/Container';
 
