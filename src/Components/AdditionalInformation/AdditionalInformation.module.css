@@ -1,0 +1,39 @@
+.title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 25px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.746);
+}
+
+.general {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.list {
+    display: flex;
+    margin-top: 12px;
+}
+
+.item:not(:last-child) {
+    margin-right: 25px;
+}
+
+.link {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid tomato;
+}
+
+.activeLink {
+    color: tomato;
+}
+
+.link:hover {
+    color: tomato;
+}

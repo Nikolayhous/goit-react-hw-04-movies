@@ -18,7 +18,7 @@ const HomePage = () => {
     }, []);
 
     return (
-        <>
+        <div className={s.homePage}>
             <PageHeading title={'Trending Today'} />
             <Suspense fallback={<LoaderSpinner />}>
                 <Switch>
@@ -34,7 +34,7 @@ const HomePage = () => {
             </Suspense>
             {isActiveBtn && <ScrollToButton />}
             {trendingMovies.length > 0 && <ScrollToButton />}
-        </>
+        </div>
     );
 };
 
