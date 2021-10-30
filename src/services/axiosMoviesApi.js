@@ -18,9 +18,11 @@ const trendingMoviesApi = async (page = 1) => {
 
 const searchMoviesApi = async searchQuery => {
     try {
-        const { data: results } = await axios.get(
+        const { data } = await axios.get(
             `3/search/movie?api_key=${KEY_API}&language=en-US&query=${searchQuery}&include_adult=false`,
         );
+
+        const results = data.results;
         return results;
     } catch (error) {
         console.log(error.message);

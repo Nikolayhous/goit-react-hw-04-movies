@@ -2,18 +2,18 @@ import s from './HomePage.module.css';
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 import fetchApi from '../../services/axiosMoviesApi';
-import TrendingList from '../../Components/TrendingList';
+import MovieList from '../../Components/MovieList';
 import PageHeading from '../../Components/PageHeading';
 import LoaderSpinner from '../../Components/Loader/';
 import ScrollToButton from '../../Components/ButtonScrollTo';
 
 const HomePage = () => {
-    const [trendingMovies, setTrendingMovies] = useState([]);
+    const [movies, setMovies] = useState([]);
     const [isActiveBtn, setIsActiveBtn] = useState(false);
 
     useEffect(() => {
-        fetchApi.trendingMoviesApi().then(trendingMovies => {
-            setTrendingMovies(trendingMovies);
+        fetchApi.trendingMoviesApi().then(movies => {
+            setMovies(movies);
         });
     }, []);
 
@@ -23,17 +23,12 @@ const HomePage = () => {
             <Suspense fallback={<LoaderSpinner />}>
                 <Switch>
                     <Route>
-                        {trendingMovies.length && (
-                            <TrendingList
-                                trendingMovies={trendingMovies}
-                                exact
-                            />
-                        )}
+                        {movies.length && <MovieList movies={movies} exact />}
                     </Route>
                 </Switch>
             </Suspense>
             {isActiveBtn && <ScrollToButton />}
-            {trendingMovies.length > 0 && <ScrollToButton />}
+            {movies.length > 0 && <ScrollToButton />}
         </div>
     );
 };

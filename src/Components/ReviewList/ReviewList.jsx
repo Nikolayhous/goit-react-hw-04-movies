@@ -7,7 +7,6 @@ import scrollPageDown from '../../scrollDown/scrollDown';
 const Review = () => {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
-    console.log(reviews);
 
     useEffect(() => {
         fetchApi
@@ -18,7 +17,6 @@ const Review = () => {
             });
         if (reviews.length > 0) {
             scrollPageDown();
-            console.log(movieId);
         }
     }, [movieId, reviews.length]);
 

@@ -24,6 +24,7 @@ const AdditionalInformationList = ({ title }) => {
     };
     return (
         <>
+            <span className={s.line}></span>
             <h2 className={s.title}>{title}</h2>
             <div className={s.general}>
                 <ul className={s.list}>

@@ -38,11 +38,11 @@ const MovieDetailsPage = () => {
 
                     <Suspense fallback={<LoaderSpinner />}>
                         <Switch>
-                            <Route path={`${path}/cast`}>
+                            <Route exact path={`${path}/cast`}>
                                 {movie && <Cast />}
                             </Route>
 
-                            <Route path={`${path}/reviews`}>
+                            <Route exact path={`${path}/reviews`}>
                                 {movie && <Review />}
                             </Route>
                         </Switch>

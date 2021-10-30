@@ -1,14 +1,14 @@
-import s from './TrendingList.module.css';
+import s from './MovieList.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
-const TrendingList = ({ trendingMovies }) => {
+const MovieList = ({ movies }) => {
     const location = useLocation();
     const imgSrcBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
     return (
         <>
             <ul className={s.list}>
-                {trendingMovies.map(
+                {movies.map(
                     ({ id, original_title, poster_path, name, popularity }) => (
                         <li key={id} className={s.item}>
                             <Link
@@ -39,4 +39,4 @@ const TrendingList = ({ trendingMovies }) => {
     );
 };
 
-export default TrendingList;
+export default MovieList;
