@@ -1,5 +1,6 @@
 import s from './MovieList.module.css';
 import { Link, useLocation } from 'react-router-dom';
+import noPoster from '../../images/no_poster.jpg';
 
 const MovieList = ({ movies }) => {
     const location = useLocation();
@@ -24,7 +25,11 @@ const MovieList = ({ movies }) => {
                                 </h2>
                                 <img
                                     className={s.image}
-                                    src={`${imgSrcBaseUrl}${poster_path}`}
+                                    src={
+                                        poster_path
+                                            ? `${imgSrcBaseUrl}${poster_path}`
+                                            : noPoster
+                                    }
                                     alt={original_title}
                                 />
                                 <p className={s.text}>
