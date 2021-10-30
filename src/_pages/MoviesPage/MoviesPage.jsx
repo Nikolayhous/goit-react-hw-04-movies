@@ -17,17 +17,19 @@ const MoviesPage = () => {
         if (searchQuery === '') {
             return;
         }
-        fetchApi.searchMoviesApi(searchQuery).then(movies => {
-            setMovies(prev => [...prev, ...movies]);
-        });
-        // .catch(error => {
-        //     console.log(error.message);
-        // });
+        fetchApi
+            .searchMoviesApi(searchQuery)
+            .then(movies => {
+                setMovies(prev => [...prev, ...movies]);
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
     }, [searchQuery]);
 
     const handleFormSubmit = searchQuery => {
         setSearchQuery(searchQuery);
-        // setMovies([]);
+        setMovies([]);
     };
 
     return (
@@ -39,7 +41,7 @@ const MoviesPage = () => {
                     </Route>
                     <Route exact path="/movies">
                         <SearchForm onSubmit={handleFormSubmit} />
-                        <MovieList movies={movies} />
+                        {movies.length !== 0 && <MovieList movies={movies} />}
                     </Route>
                 </Switch>
             </Suspense>

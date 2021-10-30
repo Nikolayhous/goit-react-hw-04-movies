@@ -1,7 +1,6 @@
 function scrollPageDown() {
     window.scrollTo({
-        top: 800,
-        left: 0,
+        top: document.documentElement.scrollHeight,
         behavior: 'smooth',
     });
 }
