@@ -1,6 +1,7 @@
 import s from './MovieList.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import noPoster from '../../images/no_poster.jpg';
+import PropTypes from 'prop-types';
 
 const MovieList = ({ movies }) => {
     const location = useLocation();
@@ -42,6 +43,10 @@ const MovieList = ({ movies }) => {
             </ul>
         </>
     );
+};
+
+MovieList.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.shape),
 };
 
 export default MovieList;

@@ -6,7 +6,7 @@ const GoBack = () => {
     const location = useLocation();
 
     const handleClickGoBack = () => {
-        history.push(location?.state?.from?.location ?? '/');
+        history.push(location?.state?.from ?? '/');
     };
     return (
         <>

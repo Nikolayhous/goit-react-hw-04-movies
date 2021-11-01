@@ -42,7 +42,7 @@ const MovieDetailsPage = () => {
                                 {movie && <Cast />}
                             </Route>
 
-                            <Route exact path={`${path}/reviews`}>
+                            <Route path={`${path}/review`}>
                                 {movie && <Review />}
                             </Route>
                         </Switch>

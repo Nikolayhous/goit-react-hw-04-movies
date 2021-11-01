@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useRouteMatch, useLocation } from 'react-router-dom';
 import s from './AdditionalInformation.module.css';
+import PropTypes from 'prop-types';
 
 const AdditionalInformationList = ({ title }) => {
     const { url } = useRouteMatch();
@@ -62,6 +63,10 @@ const AdditionalInformationList = ({ title }) => {
             </div>
         </>
     );
+};
+
+AdditionalInformationList.propTypes = {
+    title: PropTypes.string.isRequired,
 };
 
 export default AdditionalInformationList;

@@ -1,0 +1,26 @@
+.reviews {
+    padding-bottom: 25px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.author {
+    font-style: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.error {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+}

@@ -1,6 +1,7 @@
 import s from './SearchForm.module.css';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -46,6 +47,10 @@ const SearchForm = ({ onSubmit }) => {
             </div>
         </>
     );
+};
+
+SearchForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

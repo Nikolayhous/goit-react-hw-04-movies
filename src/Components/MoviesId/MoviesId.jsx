@@ -1,5 +1,6 @@
 import s from './MoviesId.module.css';
 import noPoster from '../../images/no_poster.jpg';
+import PropTypes from 'prop-types';
 
 const MoviesId = ({ movie }) => {
     const profileBaseUrl = 'http://image.tmdb.org/t/p/w185';
@@ -34,6 +35,10 @@ const MoviesId = ({ movie }) => {
             </div>
         </div>
     );
+};
+
+MoviesId.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.shape),
 };
 
 export default MoviesId;

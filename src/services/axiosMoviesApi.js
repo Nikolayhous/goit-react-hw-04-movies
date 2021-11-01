@@ -53,9 +53,10 @@ const castMoviesApi = async movieId => {
 
 const reviewsMoviesApi = async movieId => {
     try {
-        const { data: results } = await axios.get(
+        const { data } = await axios.get(
             `3/movie/${movieId}/reviews?api_key=${KEY_API}&language=en-US`,
         );
+        const results = data.results;
         return results;
     } catch (error) {
         console.log(error.message);

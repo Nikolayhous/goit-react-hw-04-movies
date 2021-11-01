@@ -14,14 +14,14 @@ const Cast = () => {
     useEffect(() => {
         fetchApi
             .castMoviesApi(movieId)
-            .then(setCast)
+            .then(res => {
+                setCast(res);
+                scrollPageDown();
+            })
             .catch(error => {
                 console.log(error.message);
             });
-        if (cast.length > 0) {
-            scrollPageDown();
-        }
-    }, [movieId, cast.length]);
+    }, [movieId]);
 
     return (
         <div className={s.boxCastList}>

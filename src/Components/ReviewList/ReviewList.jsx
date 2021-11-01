@@ -11,30 +11,30 @@ const Review = () => {
     useEffect(() => {
         fetchApi
             .reviewsMoviesApi(movieId)
-            .then(setReviews)
+            .then(res => {
+                setReviews(res);
+                scrollPageDown();
+            })
             .catch(error => {
                 console.log(error.message);
             });
-        if (reviews.length > 0) {
-            scrollPageDown();
-        }
-    }, [movieId, reviews.length]);
+    }, [movieId]);
 
     return (
-        <>
+        <div className={s.reviews}>
             {reviews && reviews.length > 0 ? (
                 <ul className={s.list}>
                     {reviews.map(({ id, author, content }) => (
-                        <li key={id}>
-                            <p>{author}</p>
-                            <p>{content}</p>
+                        <li key={id} className={s.item}>
+                            <p className={s.author}>{author}</p>
+                            <p className={s.text}>{content}</p>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <p>Not information </p>
+                <p className={s.error}>Not information </p>
             )}
-        </>
+        </div>
     );
 };
 

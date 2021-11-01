@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const HomePage = lazy(() => import('./_pages/HomePage'));
 const MoviesPage = lazy(() => import('./_pages/MoviesPage'));
 const NotFoundView = lazy(() => import('./_pages/NotFoundView'));
+const MovieDetailsPage = lazy(() => import('./_pages/NotFoundView'));
 
 function App() {
     return (
@@ -23,6 +24,9 @@ function App() {
                         </Route>
                         <Route path="/movies">
                             <MoviesPage />
+                        </Route>
+                        <Route path={'movies/:movieId'}>
+                            <MovieDetailsPage />
                         </Route>
                         <Route>
                             <NotFoundView />
