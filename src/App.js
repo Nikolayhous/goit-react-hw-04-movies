@@ -5,6 +5,7 @@ import HeaderNavigation from './Components/HeaderNavigation';
 import Container from './Components/Container';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Components/Footer';
 
 const HomePage = lazy(() => import('./_pages/HomePage'));
 const MoviesPage = lazy(() => import('./_pages/MoviesPage'));
@@ -34,6 +35,7 @@ function App() {
                     </Switch>
                 </Container>
             </Suspense>
+            <Footer />
         </>
     );
 }
