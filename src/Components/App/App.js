@@ -1,16 +1,16 @@
 import { Switch, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import Loader from './Components/Loader';
-import HeaderNavigation from './Components/HeaderNavigation';
-import Container from './Components/Container';
+import Loader from '../Loader';
+import HeaderNavigation from '../HeaderNavigation';
+import Container from '../Container';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from './Components/Footer';
+import Footer from '../Footer';
 
-const HomePage = lazy(() => import('./_pages/HomePage'));
-const MoviesPage = lazy(() => import('./_pages/MoviesPage'));
-const NotFoundView = lazy(() => import('./_pages/NotFoundView'));
-const MovieDetailsPage = lazy(() => import('./_pages/NotFoundView'));
+const HomePage = lazy(() => import('../../_pages/HomePage'));
+const MoviesPage = lazy(() => import('../../_pages/MoviesPage'));
+const NotFoundView = lazy(() => import('../../_pages/NotFoundView'));
+const MovieDetailsPage = lazy(() => import('../../_pages/NotFoundView'));
 
 function App() {
     return (
