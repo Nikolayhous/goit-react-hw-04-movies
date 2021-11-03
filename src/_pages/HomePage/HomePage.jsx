@@ -42,7 +42,7 @@ const HomePage = () => {
         <div className={s.homePage}>
             <PageHeading title={'Trending Today'} />
 
-            {movies.length !== 0 && <MovieList movies={movies} exact />}
+            {movies.length !== 0 && <MovieList movies={movies} />}
             {movies.length !== 0 && <Button onClick={handleLoadMoreClick} />}
 
             {isActiveBtn && <ScrollToButton />}

@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Loader from '../Loader';
 import HeaderNavigation from '../HeaderNavigation';
@@ -29,9 +29,10 @@ function App() {
                         <Route path={'movies/:movieId'}>
                             <MovieDetailsPage />
                         </Route>
-                        <Route>
+                        <Route path="/error">
                             <NotFoundView />
                         </Route>
+                        <Redirect to="/" />
                     </Switch>
                 </Container>
             </Suspense>
