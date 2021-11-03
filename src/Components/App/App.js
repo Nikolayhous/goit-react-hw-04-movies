@@ -26,13 +26,13 @@ function App() {
                         <Route path="/movies">
                             <MoviesPage />
                         </Route>
-                        <Route path={'movies/:movieId'}>
+                        <Route path="/movies/:movieId">
                             <MovieDetailsPage />
                         </Route>
                         <Route path="/error">
                             <NotFoundView />
                         </Route>
-                        <Redirect to="/" />
+                        <Redirect to="/error" />
                     </Switch>
                 </Container>
             </Suspense>
