@@ -9,8 +9,8 @@ import Footer from '../Footer';
 
 const HomePage = lazy(() => import('../../_pages/HomePage'));
 const MoviesPage = lazy(() => import('../../_pages/MoviesPage'));
-const NotFoundView = lazy(() => import('../../_pages/NotFoundView'));
 const MovieDetailsPage = lazy(() => import('../../_pages/NotFoundView'));
+const NotFoundView = lazy(() => import('../../_pages/NotFoundView'));
 
 function App() {
     return (
@@ -26,7 +26,7 @@ function App() {
                         <Route path="/movies">
                             <MoviesPage />
                         </Route>
-                        <Route path="/movies/:movieId">
+                        <Route path={'/movies/:movieId'}>
                             <MovieDetailsPage />
                         </Route>
                         <Route path="/error">
